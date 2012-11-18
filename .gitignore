@@ -1,0 +1,21 @@
+# Mac OS X
+.DS_Store
+Icon?
+
+# Thumbnails
+._*
+
+# OS or Editor folders
+.Spotlight-V100
+.Trashes
+Thumbs.db
+.cache
+
+#Folders to ignore
+savefile
+vendor
+auto-save-list
+
+# emacs
+*~
+*.elc
