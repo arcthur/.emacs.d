@@ -22,6 +22,10 @@
                             "setFixtures" "require" "Handlebars" "exports" "todo" "setTimeout"
                             "clearTimeout" "setInterval" "clearInterval" "location" "console"))
 
+;; Default js indentation levels
+(setq-default js2-basic-offset 2)
+(setq js-indent-level 2)
+
 (setq-default js2-always-indent-assigned-expr-in-decls-p nil)
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-enter-indents-newline t)
