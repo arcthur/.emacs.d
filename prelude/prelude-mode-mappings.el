@@ -42,12 +42,6 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
 
-;; Coffee
-(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
-(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
-;; it defaults to js2-mode, which is not present in Emacs by default
-(setq coffee-js-mode 'javascript-mode)
-
 ;; Snippets
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
 

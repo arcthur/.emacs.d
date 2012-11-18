@@ -120,7 +120,8 @@
         (:name coffee-mode
                :type github
                :pkgname "defunkt/coffee-mode"
-               :features coffee-mode)
+               :features coffee-mode
+               :lazy t)
 
         ;; Snippets
         (:name yasnippet

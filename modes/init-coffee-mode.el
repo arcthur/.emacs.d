@@ -1,4 +1,6 @@
-;;; Coffeescript
+;; Coffeescript
+(require 'coffee-mode)
+
 (autoload 'coffee-mode "coffee-mode" nil t)
 
 (add-hook 'coffee-mode-hook
