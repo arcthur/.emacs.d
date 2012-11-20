@@ -53,6 +53,7 @@
 (require 'init-desktop)
 (require 'init-eproject)
 (require 'init-ffip)
+(require 'init-gtags)
 (require 'init-hippie)
 (require 'init-helm)
 (require 'init-highlight)
