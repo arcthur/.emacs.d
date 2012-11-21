@@ -1,3 +1,64 @@
+(js2-imenu-extras-setup)
+
+(defcustom preferred-javascript-mode 'js2-mode
+  "Javascript mode to use for .js files."
+  :type 'symbol
+  :group 'programming
+  :options '(js2-mode js3-mode js-mode))
+
+;; Default js indentation levels
+; (setq-default js2-basic-offset 2)
+; (setq js-indent-level 2)
+
+(defvar preferred-javascript-indent-level 2)
+
+(defvar my-global-externs '("it" "loadFixtures" "expect" "describe" "beforeEach" "spyOn" "jasmine"
+                            "$" "Mustache" "jQuery" "_" "Nulogy" "Backbone" "JST" "afterEach"
+                            "setFixtures" "require" "Handlebars" "exports" "todo" "setTimeout"
+                            "clearTimeout" "setInterval" "clearInterval" "location" "console"))
+
+
+;; Need to first remove from list if present, since elpa adds entries too, which
+;; may be in an arbitrary order
+(eval-when-compile (require 'cl))
+(setq auto-mode-alist (cons `("\\.js?$" . ,preferred-javascript-mode)
+                            (loop for entry in auto-mode-alist
+                                  unless (eq preferred-javascript-mode (cdr entry))
+                                  collect entry)))
+
+;; js2-mode
+(add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2")))
+(setq js2-allow-keywords-as-property-names nil
+      js2-always-indent-assigned-expr-in-decls-p nil
+      js2-use-font-lock-faces t
+      js2-mode-must-byte-compile nil
+      js2-global-externs my-global-externs
+      js2-basic-offset preferred-javascript-indent-level
+      js2-indent-on-enter-key t
+      js2-highlight-level 3
+      js2-auto-indent-p t
+      js2-enter-indents-newline t
+      js2-bounce-indent-p nil
+      js2-rebind-eol-bol-keys nil
+      js2-strict-inconsistent-return-warning nil
+      js2-strict-missing-semi-warning nil
+      js2-mirror-mode nil
+      js2-concat-multiline-strings 'eol)
+
+;; js3-mode
+(add-hook 'js3-mode-hook '(lambda () (setq mode-name "JS3")))
+(setq js3-indent-level preferred-javascript-indent-level
+      js3-consistent-level-indent-inner-bracket t
+      js3-global-externs my-global-externs)
+
+;; js-mode
+(setq js-indent-level preferred-javascript-indent-level)
+
+;; standard javascript-mode
+(setq javascript-indent-level preferred-javascript-indent-level)
+
+(add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
+
 ;; Use lambda for anonymous functions
 (font-lock-add-keywords
   'js2-mode `(("\\(function\\) *("
@@ -16,31 +77,6 @@
       'js2-mode
       '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
          1 font-lock-warning-face t)))
-
-(defvar my-global-externs '("it" "loadFixtures" "expect" "describe" "beforeEach" "spyOn" "jasmine"
-                            "$" "Mustache" "jQuery" "_" "Nulogy" "Backbone" "JST" "afterEach"
-                            "setFixtures" "require" "Handlebars" "exports" "todo" "setTimeout"
-                            "clearTimeout" "setInterval" "clearInterval" "location" "console"))
-
-;; Default js indentation levels
-(setq-default js2-basic-offset 2)
-(setq js-indent-level 2)
-
-(setq-default js2-always-indent-assigned-expr-in-decls-p nil)
-(setq-default js2-allow-rhino-new-expr-initializer nil)
-(setq-default js2-enter-indents-newline t)
-(setq-default js2-global-externs my-global-externs)
-(setq-default js2-indent-on-enter-key t)
-(setq-default js2-idle-timer-delay 0.1)
-(setq-default js2-mirror-mode nil)
-(setq-default js2-strict-inconsistent-return-warning nil)
-(setq-default js2-auto-indent-p t)
-(setq-default js2-rebind-eol-bol-keys nil)
-(setq-default js2-include-rhino-externs nil)
-(setq-default js2-include-gears-externs nil)
-(setq-default js2-concat-multiline-strings 'eol)
-
-(js2-imenu-extras-setup)
 
 (defadvice js2r-inline-var (after reindent-buffer activate)
   (cleanup-buffer))
@@ -132,4 +168,4 @@
 ;; adds ac-source-jquery to the ac-sources list
 (add-hook 'js2-mode-hook 'jquery-doc-setup)
 
-(provide 'init-js2-mode)
+(provide 'init-js-mode)

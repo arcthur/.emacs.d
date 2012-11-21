@@ -116,6 +116,11 @@
                :pkgname "purcell/color-theme-sanityinc-tomorrow"
                :features color-theme-sanityinc-tomorrow)
 
+        ;; Javascript
+        js3-mode
+        js2-mode
+        js2-refactor
+
         ;; Coffee mode
         (:name coffee-mode
                :type github
@@ -214,7 +219,6 @@
         highlight-symbol
         inf-ruby
         jquery-doc
-        js2-refactor
         magit
         magithub
         nyan-mode
