@@ -6,7 +6,10 @@
 ;; Allow pasting selection outside of Emacs
 (setq x-select-enable-clipboard t)
 
+;; Unify Yes/No questions
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Disable alarm beeps
 (setq ring-bell-function 'ignore)
 
 ;; Real emacs knights don't use shift to mark things
