@@ -104,11 +104,11 @@
                :features multiple-cursors
                :depends (mark-multiple dash))
 
-        ;; Wrap region
-        (:name wrap-region
+        ;; Parens
+        (:name smartparens
                :type github
-               :pkgname "rejeep/wrap-region"
-               :features wrap-region)
+               :pkgname "Fuco1/smartparens"
+               :features smartparens)
 
         ;; Color theme
         (:name color-theme-sanityinc-tomorrow
@@ -201,7 +201,6 @@
 
 (setq prelude-packages
       (append '(
-        autopair
         auctex
         ace-jump-mode
         diminish

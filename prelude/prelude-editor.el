@@ -47,7 +47,6 @@
 (eval-after-load 'shell '(require 'init-shell))
 (require 'init-acejump)
 (require 'init-ack)
-(require 'init-autopair)
 (require 'init-autocomplete)
 (require 'init-diminish)
 (require 'init-desktop)
@@ -62,9 +61,9 @@
 (require 'init-paredit)
 (require 'init-speedbar)
 (require 'init-spelling)
+(require 'init-smartparens)
 (require 'init-undotree)
 (require 'init-webjump)
-(require 'init-wrap-region)
 (require 'init-yasnippet)
 
 ;; Whitespace style
