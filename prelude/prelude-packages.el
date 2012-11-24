@@ -153,16 +153,10 @@
         auto-complete-yasnippet
 
         ;; Flymake
-        (:name emacs-flymake
+        (:name flycheck
                :type github
-               :pkgname "illusori/emacs-flymake"
-               :features "flymake")
-
-        (:name emacs-flymake-cursor
-               :type github
-               :pkgname "illusori/emacs-flymake-cursor"
-               :depends emacs-flymake
-               :features "flymake-cursor")
+               :pkgname "lunaryorn/flycheck"
+               :features "flycheck")
 
         ;; Node jade && stylus
         (:name jade-mode
