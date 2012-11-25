@@ -213,6 +213,7 @@
         jquery-doc
         magit
         magithub
+        git-modes
         nyan-mode
         paredit
         rvm
