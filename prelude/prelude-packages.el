@@ -149,8 +149,7 @@
                :pkgname "auto-complete/auto-complete"
                :depends (popup fuzzy))
 
-        ; auto-complete-latex
-        auto-complete-yasnippet
+        auto-complete-latex
 
         ;; Flymake
         (:name flycheck
