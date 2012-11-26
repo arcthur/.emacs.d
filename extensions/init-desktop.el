@@ -5,7 +5,7 @@
   (let ((mode (with-current-buffer buffer major-mode)))
     (if (eq mode 'sr-mode) t nil)))
 
-(setq desktop-dirname (expand-file-name "desktop" prelude-savefile-dir))
+(setq desktop-dirname prelude-savefile-dir)
 (setq desktop-path (list desktop-dirname))
 (desktop-save-mode 1)
 (setq history-length 250)
