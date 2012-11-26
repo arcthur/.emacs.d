@@ -56,8 +56,7 @@
         (:name helm
                :type github
                :pkgname "emacs-helm/helm"
-               :build `(,(concat "make LOADPATH='-L . -L ../org-mode/lisp' EMACS='" el-get-emacs " -Q -batch'"))
-               :autoloads "helm-config")
+               :features helm-config)
 
         (:name helm-projectile
                :type github
