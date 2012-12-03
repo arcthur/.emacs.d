@@ -63,6 +63,8 @@
 ;; smex
 (smex-initialize)
 
+(setq smex-save-file (expand-file-name "smex-items" prelude-savefile-dir))
+
 (defun smex-update-after-load (unused)
   (when (boundp 'smex-cache)
     (smex-update)))
