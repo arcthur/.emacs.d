@@ -1,11 +1,11 @@
 (smartparens-global-mode t)
 
-;; pending deletion. Replace active region with input. This is
-;; virtually `delete-selection-mode' emulation.
-(sp-turn-on-delete-selection-mode)
+;; highlights matching pairs
+(show-smartparens-global-mode t)
 
 ;;; add new pairs
 (sp-add-pair "*" "*")
+(sp-add-pair "$" "$")
 
 ;;; global
 (sp-add-ban-insert-pair-in-string "'")
@@ -21,16 +21,32 @@
              (sp-add-local-ban-insert-pair 'text-mode)
              (sp-add-local-ban-insert-pair 'log-edit-mode))
 
+;; now, we could've also done just this:
+;; (sp-add-local-ban-insert-pair "'"
+;;                               '(markdown-mode
+;;                                 tex-mode
+;;                                 latex-mode
+;;                                 text-mode
+;;                                 log-edit-mode))
+;; but I wanted to show you how to use the sp-with-tag macro :)
+
 ;;; emacs-lisp-mode
 (sp-add-local-ban-insert-pair "'" 'emacs-lisp-mode)
 (sp-add-local-ban-insert-pair "'" 'inferior-emacs-lisp-mode)
 (sp-add-local-ban-insert-pair-in-code "`" 'emacs-lisp-mode)
-;
-;;; markdown-mode
-(sp-add-local-pair "`" "`" 'markdown-mode)
-(sp-add-local-pair "*" "*" 'markdown-mode)
+(sp-add-local-ban-insert-pair-in-code "`" 'inferior-emacs-lisp-mode)
 
-;; latex-mode
-(sp-add-local-pair "$" "$" 'latex-mode)
+;; markdown-mode
+; you can also use the `sp-with' macro. It will automatically add the
+; mode to the end of each call. How cool is that!
+(sp-with 'markdown-mode
+         (sp-add-local-pair "`" "`")
+         ;; this also disables '*' in all other modes
+         (sp-add-local-allow-insert-pair "*")
+         (sp-add-tag-pair "2" "**" "**" nil))
+
+;;; tex-mode latex-mode
+(sp-with '(tex-mode latex-mode) ;; yes, this works with lists too!
+         (sp-add-local-allow-insert-pair "$"))
 
 (provide 'init-smartparens)

@@ -90,7 +90,7 @@
         (:name dash
                :type github
                :pkgname "magnars/dash.el"
-               :features "dash")
+               :features dash)
 
         (:name mark-multiple
                :type github
@@ -107,6 +107,7 @@
         (:name smartparens
                :type github
                :pkgname "Fuco1/smartparens"
+               :depends dash
                :features smartparens)
 
         ;; Color theme
