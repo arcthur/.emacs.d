@@ -5,7 +5,25 @@
         (lambda (s) (let (el-get-master-branch) (goto-char (point-max)) (eval-print-last-sexp)))))
 
 (setq el-get-sources
-      '((:name expand-region
+      '(
+        ;; Mark
+        (:name dash
+               :type github
+               :pkgname "magnars/dash.el"
+               :features dash)
+
+        (:name mark-multiple
+               :type github
+               :pkgname "magnars/mark-multiple.el"
+               :features mark-multiple)
+
+        (:name multiple-cursors
+               :type github
+               :pkgname "magnars/multiple-cursors.el"
+               :features multiple-cursors
+               :depends (mark-multiple dash))
+
+        (:name expand-region
                :type github
                :pkgname "magnars/expand-region.el"
                :features expand-region)
@@ -85,23 +103,6 @@
                :type github
                :pkgname "emacsmirror/undo-tree"
                :features undo-tree)
-
-        ;; Mark
-        (:name dash
-               :type github
-               :pkgname "magnars/dash.el"
-               :features dash)
-
-        (:name mark-multiple
-               :type github
-               :pkgname "magnars/mark-multiple.el"
-               :features mark-multiple)
-
-        (:name multiple-cursors
-               :type github
-               :pkgname "magnars/multiple-cursors.el"
-               :features multiple-cursors
-               :depends (mark-multiple dash))
 
         ;; Parens
         (:name smartparens
@@ -196,6 +197,12 @@
         (:name markdown-mode
                :type git
                :url "git://jblevins.org/git/markdown-mode.git")
+
+        ;; Tag
+        (:name tagedit
+               :type github
+               :pkgname "magnars/tagedit"
+               :features tagedit)
 ))
 
 (setq prelude-packages
