@@ -5,6 +5,7 @@
 (require 'init-coffee-mode)
 (require 'init-org-mode)
 (require 'init-magit)
+(require 'init-markdown-mode)
 (require 'init-js-mode)
 
 ;; Regular expressions
