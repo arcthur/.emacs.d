@@ -20,9 +20,6 @@
 (eval-after-load "yas/minor-mode"
   '(diminish 'yas/minor-mode "yas"))
 
-(eval-after-load "wrap-region-mode"
-  '(diminish 'wrap-region-mode "wr"))
-
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (setq mode-name "elisp")))
