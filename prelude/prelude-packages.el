@@ -203,6 +203,12 @@
                :type github
                :pkgname "magnars/tagedit"
                :features tagedit)
+
+        ;; Fold-this
+        (:name fold-this
+               :type github
+               :pkgname "magnars/fold-this.el"
+               :features fold-this)
 ))
 
 (setq prelude-packages
