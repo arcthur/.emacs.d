@@ -10,6 +10,10 @@
 ;; Display and edit occurances of regexp in buffer
 (global-set-key [(shift f2)] 'occur)
 
+;; Multi-occur
+(global-set-key (kbd "M-s m") 'multi-occur)
+(global-set-key (kbd "M-s M") 'multi-occur-in-matching-buffers)
+
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)
 (define-key occur-mode-map (kbd "n") 'next-line)
@@ -408,6 +412,11 @@
 (define-key sp-keymap (kbd "M-D") 'sp-splice-sexp)
 (define-key sp-keymap (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
 (define-key sp-keymap (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
+
+;; little hack to disable C-[ acting as an ESC
+(define-key input-decode-map (kbd "C-[") (kbd "H-["))
+(define-key sp-keymap (kbd "C-]") 'sp-select-next-thing)
+(define-key sp-keymap (kbd "H-[") 'sp-select-previous-thing)
 
 ;; keybinding to toggle full screen mode
 ;; ----------------------------------------------------------
