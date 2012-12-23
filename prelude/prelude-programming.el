@@ -6,6 +6,7 @@
 (require 'init-org-mode)
 (require 'init-magit)
 (require 'init-markdown-mode)
+(require 'init-ruby-mode)
 (require 'init-js-mode)
 
 ;; Regular expressions
