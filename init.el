@@ -48,7 +48,6 @@ avoid modifying the configuration there.")
 (require 'prelude-modeline)
 (require 'prelude-misc)
 (require 'prelude-editor)
-(require 'prelude-mode-mappings)
 (require 'prelude-keybindings)
 (require 'prelude-programming)
 
