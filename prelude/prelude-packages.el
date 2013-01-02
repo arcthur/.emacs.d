@@ -40,6 +40,12 @@
                :features smart-forward
                :depends expand-region)
 
+        ;; Move
+        (:name move-text
+               :type github
+               :pkgname "emacsmirror/move-text"
+               :features move-text)
+
         ;; Speedbar
         (:name sr-speedbar
                :type github

@@ -325,8 +325,8 @@
 
 ;; Line movement
 ;; ----------------------------------------------------------
-(global-set-key (kbd "<C-S-down>") 'move-line-down)
-(global-set-key (kbd "<C-S-up>")   'move-line-up)
+(global-set-key (kbd "<C-S-down>") 'move-text-down)
+(global-set-key (kbd "<C-S-up>") 'move-text-up)
 
 ;; Fold the active region
 ;; ----------------------------------------------------------
