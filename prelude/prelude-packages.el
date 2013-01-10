@@ -162,6 +162,7 @@
         (:name flycheck
                :type github
                :pkgname "lunaryorn/flycheck"
+               :depends (dash s))
                :features "flycheck")
 
         ;; Node jade && stylus
