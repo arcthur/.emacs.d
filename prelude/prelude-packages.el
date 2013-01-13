@@ -225,7 +225,6 @@
         diminish
         el-get
         evil
-        eproject
         find-file-in-project
         highlight-parentheses
         highlight-symbol
