@@ -366,10 +366,6 @@
 (global-set-key (kbd "C-x C-j") 'dired-jump)
 (global-set-key (kbd "C-x M-j") '(lambda () (interactive) (dired-jump 1)))
 
-;; Find file in project
-;; ----------------------------------------------------------
-(global-set-key (kbd "C-x f") 'find-file-in-project)
-
 ;; undo-tree
 ;; ----------------------------------------------------------
 (global-set-key (kbd "C-x u") 'undo-tree-visualize)
