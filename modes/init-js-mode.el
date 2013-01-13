@@ -7,8 +7,8 @@
   :options '(js2-mode js3-mode js-mode))
 
 ;; Default js indentation levels
-; (setq-default js2-basic-offset 2)
-; (setq js-indent-level 2)
+(setq-default js2-basic-offset 2)
+(setq js-indent-level 2)
 
 (defvar preferred-javascript-indent-level 2)
 
