@@ -2,9 +2,6 @@
 (eval-after-load "undo-tree"
   '(diminish 'undo-tree-mode "ut"))
 
-(eval-after-load "eproject"
-  '(diminish 'eproject-mode "eprj"))
-
 (eval-after-load "Projectile"
   '(diminish 'projectile-mode "prj"))
 
