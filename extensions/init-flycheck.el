@@ -7,7 +7,6 @@
         flycheck-checker-emacs-lisp
         flycheck-checker-haml
         flycheck-checker-html
-        flycheck-checker-nxhtml
         flycheck-checker-json
         flycheck-checker-javascript-jshint
         flycheck-checker-javascript-jslint
@@ -28,15 +27,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar flycheck-checker-nxhtml
-  '(:command
-    ("tidy" "-e" "-q" source)
-    :error-patterns
-    (("line \\([0-9]+\\) column \\([0-9]+\\) - \\(Warning\\|Error\\): \\(.*\\)" nil 1 2 4))
-    :modes nxhtml-mode))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; Create 'pycheckers' file, make executable and put it in PATH
 ;;
 ;; #!/bin/bash
@@ -49,27 +39,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar flycheck-checker-xml-xmlstarlet
-  '(:command
-    ("xmlstarlet" "val" "-e" "-q" source-inplace)
-    :modes nxml-mode))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (defvar flycheck-checker-go
   '(:command
     ("go" "build" "-o" "/dev/null" source)
     :modes go-mode))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defvar flycheck-checker-lua
-  '(:command
-    ("luac" "-p" source)
-    :error-patterns
-    (("^.*luac[0-9.]*\\(.exe\\)?: *\\(.*\\):\\([0-9]+\\): \\(.*\\)$"
-      2 3 nil 4))
-    :modes lua-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; modes
@@ -81,9 +54,10 @@
 
 (add-hook 'nxml-mode-hook 'flycheck-enable-except-on-temp-buffers)
 (add-hook 'sgml-mode-hook 'flycheck-enable-except-on-temp-buffers)
-(add-hook 'nxhtml-mode-hook 'flycheck-enable-except-on-temp-buffers)
 (add-hook 'LaTeX-mode-hook 'flycheck-enable-except-on-temp-buffers)
 (add-hook 'python-mode-hook 'flycheck-enable-except-on-temp-buffers)
 (add-hook 'go-mode-hook 'flycheck-enable-except-on-temp-buffers)
+
+(add-hook 'find-file-hook 'flycheck-mode)
 
 (provide 'init-flycheck)
