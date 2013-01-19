@@ -51,7 +51,6 @@
 (require 'init-diminish)
 ; (require 'init-desktop)
 (require 'init-evil)
-(require 'init-ffip)
 (require 'init-gtags)
 (require 'init-hippie)
 (require 'init-helm)
