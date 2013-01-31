@@ -216,6 +216,12 @@
                :type github
                :pkgname "magnars/fold-this.el"
                :features fold-this)
+
+        ;; Gist
+        (:name yagist
+               :type github
+               :pkgname "mhayashi1120/yagist.el"
+               :features yagist)
 ))
 
 (setq prelude-packages
