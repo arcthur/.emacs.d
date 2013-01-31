@@ -1,30 +1,5 @@
 (require 'flycheck)
 
-(setq flycheck-checkers
-      '(flycheck-checker-bash
-        flycheck-checker-coffee
-        flycheck-checker-css
-        flycheck-checker-emacs-lisp
-        flycheck-checker-haml
-        flycheck-checker-html
-        flycheck-checker-json
-        flycheck-checker-javascript-jshint
-        flycheck-checker-javascript-jslint
-        flycheck-checker-php
-        flycheck-checker-python-pycheckers
-        flycheck-checker-python-flake8
-        flycheck-checker-python-pylint
-        flycheck-checker-python-pyflakes
-        flycheck-checker-ruby
-        flycheck-checker-php
-        flycheck-checker-sh
-        flycheck-checker-tex-lacheck
-        flycheck-checker-tex-chktex
-        flycheck-checker-zsh
-        flycheck-checker-xml-xmlstarlet
-        flycheck-checker-go
-        flycheck-checker-lua))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Create 'pycheckers' file, make executable and put it in PATH
