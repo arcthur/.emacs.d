@@ -115,6 +115,11 @@
 (global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
+;; Extra multiple cursors stuff
+(global-set-key (kbd "C-~") 'mc/reverse-regions)
+(global-set-key (kbd "M-~") 'mc/sort-regions)
+(global-set-key (kbd "H-~") 'mc/insert-numbers)
+
 ;; Mark additional regions matching current region
 ;; ----------------------------------------------------------
 (global-set-key (kbd "M->") 'mark-all-like-this)
