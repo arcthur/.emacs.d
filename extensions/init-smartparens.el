@@ -45,40 +45,22 @@
 ;;;;;;;;;;;;;;;;;;
 ;; pair management
 
+(sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
+
 ;;; markdown-mode
-(sp-add-pair "*" "*")
-
-;; you can use the `sp-with' macro. It will automatically add the
-;; _mode_ to the end of each call. How cool is that!
-(sp-with '(markdown-mode gfm-mode rst-mode)
-  ;; this also disables '*' in all other modes
-  (sp-add-local-allow-insert-pair "*")
-  (sp-add-tag-pair "2" "**" "**" nil)
-  (sp-add-tag-pair "s" "```scheme" "```" nil)
-  (sp-add-tag-pair "<"  "<_>" "</_>" 'sp-match-sgml-tags))
-
-;; Besides the `sp-with' macro, when applying various permissions on
-;; the same tag, you can also use the `sp-with-tag' macro. It will
-;; automatically add the _tag_ to each function. Use this only with
-;; functions where the first argument is the opening pair! Here, we
-;; want to apply several permissions on the '' pair:
-;;
-;; (sp-with-tag "'"
-;;   (sp-add-local-ban-insert-pair 'text-mode)
-;;   (sp-add-local-ban-insert-pair-in-string 'c-mode))
+(sp-with-modes '(markdown-mode gfm-mode rst-mode)
+  (sp-local-pair "*" "*")
+  (sp-local-tag "2" "**" "**")
+  (sp-local-tag "s" "```scheme" "```")
+  (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
 
 ;;; tex-mode latex-mode
-(sp-with '(tex-mode plain-tex-mode latex-mode)
-  (sp-add-tag-pair "i" "1fe989d0dcc740eac417410c05794857765a1e2fquot;<" "1fe989d0dcc740eac417410c05794857765a1e2fquot;>" nil))
-
-;;; python-mode
-(sp-with 'python-mode
-  (sp-add-local-ban-insert-pair "`"))
+(sp-with-modes '(tex-mode plain-tex-mode latex-mode)
+  (sp-local-tag "i" "e23b2c0677aefe835963afab98e797186e9ccec0quot;<" "e23b2c0677aefe835963afab98e797186e9ccec0quot;>"))
 
 ;;; html-mode
-(sp-add-pair "<" ">") ;; in html only!
-(sp-with '(html-mode sgml-mode)
-  (sp-add-local-allow-insert-pair "<"))
+(sp-with-modes '(html-mode sgml-mode)
+  (sp-local-pair "<" ">"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom defuns and macros
@@ -86,7 +68,6 @@
   "Select ARG next things and wrap them with a () pair."
   (interactive "p")
   (sp-select-next-thing-exchange arg)
-  ;; simulate user pressing '(' key
   (execute-kbd-macro (kbd "(")))
 (define-key sp-keymap (kbd "C-(") 'my-wrap-with-paren)
 
