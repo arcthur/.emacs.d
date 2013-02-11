@@ -29,6 +29,9 @@
 ;; Remove text in active region if inserting text
 (setq delete-selection-mode t)
 
+;; Don't highlight matches with jump-char - it's distracting
+(setq jump-char-lazy-highlight-face nil)
+
 ;; Encoding
 ;; ----------------------------------------------------------
 (setq locale-coding-system 'utf-8)
