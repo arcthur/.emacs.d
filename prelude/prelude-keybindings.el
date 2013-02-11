@@ -212,6 +212,10 @@
 (global-set-key (kbd "M-`")     'file-cache-minibuffer-complete)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Revert without any fuss
+(global-set-key (kbd "M-<escape>")
+                (lambda () (interactive) (revert-buffer t t)))
+
 ;; Edit file with sudo
 ;; ----------------------------------------------------------
 (global-set-key (kbd "M-s e") 'sudo-edit)
