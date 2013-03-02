@@ -20,6 +20,9 @@
 ;; Disable blink cursor
 (blink-cursor-mode -1)
 
+;; No border
+(add-to-list 'default-frame-alist '(internal-border-width . 0))
+
 ;; ModeLine
 ;; ----------------------------------------------------------
 ;; Display line and column numbers
