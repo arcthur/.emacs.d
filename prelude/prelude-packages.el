@@ -156,8 +156,6 @@
                :pkgname "auto-complete/auto-complete"
                :depends (popup fuzzy))
 
-        auto-complete-latex
-
         ;; Flymake
         (:name flycheck
                :type github
