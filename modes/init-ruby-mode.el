@@ -31,5 +31,21 @@
     (ruby--jump-to-test)))
 
 ; (define-key ruby-mode-map (kbd "C-c t") 'ruby-jump-to-other)
+;
+;;----------------------------------------------------------------------------
+;; Ruby - handy helpers
+;;----------------------------------------------------------------------------
+
+;; Borrowed from https://github.com/textmate/ruby.tmbundle/blob/master/Commands/Convert%20Ruby%20hash%20to%201_9%20syntax.tmCommand
+(defun sanityinc/ruby-toggle-hash-syntax (beg end)
+  "Toggle between ruby 1.8 and 1.9 hash styles."
+  (interactive "r")
+  (save-excursion
+    (goto-char beg)
+    (cond
+     ((save-excursion (search-forward "=>" end t))
+      (replace-regexp ":\\(\\w+\\) +=> +" "\\1: " nil beg end))
+     ((save-excursion (re-search-forward "\\w+:" end t))
+      (replace-regexp "\\(\\w+\\):\\( *\\(?:\"\\(?:\\\"\\|[^\"]\\)*\"\\|'\\(?:\\'\\|[^']\\)*'\\|\\w+([^)]*)\\|[^,]+\\)\\)" ":\\1 =>\\2" nil beg end)))))
 
 (provide 'init-ruby-mode)
