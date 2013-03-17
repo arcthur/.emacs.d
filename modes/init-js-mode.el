@@ -59,6 +59,10 @@
 
 (add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
 
+;; js2-refactor
+(require 'js2-refactor)
+(js2r-add-keybindings-with-prefix "C-c C-m")
+
 ;; Use lambda for anonymous functions
 (font-lock-add-keywords
   'js2-mode `(("\\(function\\) *("
