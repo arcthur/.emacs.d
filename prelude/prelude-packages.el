@@ -248,8 +248,7 @@
         rainbow-delimiters
         s
         smart-tab
-        yari
-        zencoding-mode)
+        yari)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync prelude-packages)
