@@ -41,7 +41,8 @@
       (load-theme 'graphene t)))
 
 ;; Use tomorrow as the default theme
-(color-theme-sanityinc-tomorrow-eighties)
+;; (color-theme-sanityinc-tomorrow-eighties)
+(load-theme 'solarized-dark)
 
 ;; Scrolling
 ;; ----------------------------------------------------------

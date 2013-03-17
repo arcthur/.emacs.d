@@ -123,6 +123,11 @@
                :pkgname "purcell/color-theme-sanityinc-tomorrow"
                :features color-theme-sanityinc-tomorrow)
 
+        (:name solarized
+               :type github
+               :pkgname "bbatsov/solarized-emacs"
+               :prepare (add-to-list 'custom-theme-load-path default-directory))
+
         ;; Javascript
         js3-mode
         js2-mode
