@@ -1,3 +1,5 @@
+(require 'sr-speedbar)
+
 (setq speedbar-hide-button-brackets-flag t
       speedbar-show-unknown-files t
       speedbar-smart-directory-expand-flag t
