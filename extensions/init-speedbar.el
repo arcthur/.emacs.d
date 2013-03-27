@@ -6,6 +6,8 @@
       speedbar-directory-button-trim-method 'trim
       speedbar-use-images nil
       speedbar-indentation-width 2
+      speedbar-use-imenu-flag t
+      speedbar-file-unshown-regexp "flycheck-.*"
       sr-speedbar-width 40
       sr-speedbar-width-x 40
       sr-speedbar-auto-refresh nil
@@ -72,10 +74,14 @@
   (graphene-speedbar-pin-advice-activate))
 
 ;; Always use the last selected window for loading files from speedbar.
-(defvar last-selected-window (selected-window))
+(defvar last-selected-window
+  (if (not (eq (selected-window) sr-speedbar-window))
+      (selected-window)
+    (other-window)))
+
 (defadvice select-window (after remember-selected-window activate)
   "Remember the last selected window."
-  (unless (eq (selected-window) sr-speedbar-window)
+  (unless (or (eq (selected-window) sr-speedbar-window) (not (window-live-p (selected-window))))
     (setq last-selected-window (selected-window))))
 
 (defun sr-speedbar-before-visiting-file-hook ()
