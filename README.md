@@ -10,6 +10,7 @@
 8. Emacs helped me to be a effective programmer
 9. Emacs made me a hacker
 10. Emacs has changed my life forever
+
 _-Matz_
 
 ## Setup
