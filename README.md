@@ -1,5 +1,7 @@
 # My Emacs Config
 
+[![Join the chat at https://gitter.im/arcthur/.emacs.d](https://badges.gitter.im/arcthur/.emacs.d.svg)](https://gitter.im/arcthur/.emacs.d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 1. Emacs taught me freedom for software
 2. Emacs taught me how to read code
 3. Emacs taught me power of Lisp
